@@ -22,7 +22,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createTemplate(@RequestBody String templateContent) {
-        return templateService.createTemplate(templateContent);
+    public String createTemplate(@RequestBody String templateJsonContent) {
+        return templateService.createTemplate(templateJsonContent);
     }
 }

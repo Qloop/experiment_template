@@ -3,7 +3,9 @@ package com.upc.model.service;
 import com.google.gson.Gson;
 import com.upc.model.config.Config;
 import com.upc.model.dao.TemplateDao;
+import com.upc.model.dto.TemplateDto;
 import com.upc.model.model.Template;
+import com.upc.model.utils.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,12 +36,27 @@ public class TemplateService {
     public String createTemplate(String templateContent) {
         Gson gson = new Gson();
         Template templateBean = gson.fromJson(templateContent, Template.class);
+        //noinspection Duplicates
         if (templateBean == null) {
             return Config.Convert_ERROR_CODE + "";
         } else {
             templateBean.setCreateDate(new Date());
             templateDao.save(templateBean);
             return Config.SUCCESS_CODE + "";
+        }
+    }
+
+    /**
+     * @param id 实验模版ID
+     */
+    public TemplateDto getTemplate(long id) {
+        Template template = templateDao.findById(id);
+        if (template == null) {
+            return new TemplateDto(Config.NOT_FIND + "");
+        } else {
+            TemplateDto templateDto = new TemplateDto(Config.SUCCESS_CODE + "", template.getGoal(), template.getData(), template.getEquipment(),
+                    template.getWarning(), template.getTitle(), template.getDemand(), template.getThinking(), template.getTheory());
+            return templateDto;
         }
     }
 }
