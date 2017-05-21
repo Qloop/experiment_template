@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * Created by Qloop on 2017/5/21.
@@ -20,7 +21,7 @@ public class ReportController {
     private ReportService reportService;
 
     @RequestMapping(value = "/submit_report", method = RequestMethod.POST)
-    public String submitReport(@RequestBody String reportJsonContent) {
+    public Map<String, Long> submitReport(@RequestBody String reportJsonContent) {
         return reportService.save(reportJsonContent);
     }
 

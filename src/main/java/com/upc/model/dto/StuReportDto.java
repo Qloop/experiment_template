@@ -18,6 +18,7 @@ public class StuReportDto {
     private String warningRept;
     private String imgs;// 上传的图片url  (';'拼接)
 
+    @NotNull
     private long templateId;
     private long stuId;
     private String stuName;

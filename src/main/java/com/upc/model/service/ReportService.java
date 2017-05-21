@@ -14,6 +14,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -27,16 +29,21 @@ public class ReportService {
 //    @Autowired
 //    private HttpServletRequest httpServletRequest;
 
-    public String save(String reportJsonContent) {
+    public Map<String, Long> save(String reportJsonContent) {
+        Map<String, Long> map = new HashMap<>();
         Gson gson = new Gson();
         StuReport stuReport = gson.fromJson(reportJsonContent, StuReport.class);
         //noinspection Duplicates
         if (stuReport == null) {
-            return Config.Convert_ERROR_CODE + "";
+            map.put("result", (long) Config.Convert_ERROR_CODE);
+            return map;
         } else {
             stuReport.setCreateDate(new Date());
             stuReportDao.save(stuReport);
-            return Config.SUCCESS_CODE + "";
+
+            map.put("result", (long) Config.SUCCESS_CODE);
+            map.put("stuReportId", stuReport.getId());
+            return map;
         }
     }
 

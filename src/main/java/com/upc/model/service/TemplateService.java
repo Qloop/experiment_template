@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Qloop on 2017/5/20.
@@ -38,16 +40,20 @@ public class TemplateService {
      * "spaceCount": 20
      * }
      */
-    public String createTemplate(String templateContent) {
+    public Map<String, Long> createTemplate(String templateContent) {
+        Map<String, Long> map = new HashMap<>();
         Gson gson = new Gson();
         Template templateBean = gson.fromJson(templateContent, Template.class);
         //noinspection Duplicates
         if (templateBean == null) {
-            return Config.Convert_ERROR_CODE + "";
+            map.put("result", (long)Config.Convert_ERROR_CODE);
+            return map;
         } else {
             templateBean.setCreateDate(new Date());
             templateDao.save(templateBean);
-            return Config.SUCCESS_CODE + "";
+            map.put("result", (long) Config.SUCCESS_CODE);
+            map.put("templateId", templateBean.getId());
+            return map;
         }
     }
 
