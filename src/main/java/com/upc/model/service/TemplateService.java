@@ -2,10 +2,12 @@ package com.upc.model.service;
 
 import com.google.gson.Gson;
 import com.upc.model.config.Config;
+import com.upc.model.dao.StuReportDao;
 import com.upc.model.dao.TemplateDao;
+import com.upc.model.dto.StuReportDto;
 import com.upc.model.dto.TemplateDto;
+import com.upc.model.model.StuReport;
 import com.upc.model.model.Template;
-import com.upc.model.utils.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ public class TemplateService {
 
     @Autowired
     private TemplateDao templateDao;
+    @Autowired
+    private StuReportDao stuReportDao;
 
     /**
      * {
@@ -31,6 +35,7 @@ public class TemplateService {
      * "warning": "注意事项",
      * "data": "实验数据记录和处理",
      * "thinking": "思考与讨论"
+     * "spaceCount": 20
      * }
      */
     public String createTemplate(String templateContent) {
@@ -58,5 +63,29 @@ public class TemplateService {
                     template.getWarning(), template.getTitle(), template.getDemand(), template.getThinking(), template.getTheory());
             return templateDto;
         }
+    }
+
+    public StuReportDto getStuReport(long templateId, long stuId) {
+        StuReportDto stuReportDto = new StuReportDto();
+        StuReport report = stuReportDao.findByStuIdAndTemplateId(stuId, templateId);
+        if (report != null) {
+            stuReportDto.setResult(Config.SUCCESS_CODE + "");
+            stuReportDto.setId(report.getId());
+            stuReportDto.setDataRept(report.getDataRept());
+            stuReportDto.setDemandRept(report.getDemandRept());
+            stuReportDto.setEquipmentRept(report.getEquipmentRept());
+            stuReportDto.setGoalRept(report.getGoalRept());
+            stuReportDto.setImgs(report.getImgs());
+            stuReportDto.setTheoryRept(report.getTheoryRept());
+            stuReportDto.setCreateDate(report.getCreateDate());
+            stuReportDto.setStuClass(report.getStuClass());
+            stuReportDto.setStuId(report.getStuId());
+            stuReportDto.setStuName(report.getStuName());
+            stuReportDto.setTemplateId(report.getTemplateId());
+            stuReportDto.setThinkingRept(report.getThinkingRept());
+        } else {
+            stuReportDto.setResult(Config.NOT_FIND + "");
+        }
+        return stuReportDto;
     }
 }

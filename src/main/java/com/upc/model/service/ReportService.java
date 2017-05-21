@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -64,7 +63,6 @@ public class ReportService {
                         } else {
                             imageUrlsDto.setUrls(Config.BASE_URL + outFile.getAbsolutePath().replace(Config.UPLOAD_PATH, ""));
                         }
-//                        "http://118.89.112.50/\\var\\www\\2793ca3f4-d088-474e-88c8-b9f3ad2c2351.jpg"
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

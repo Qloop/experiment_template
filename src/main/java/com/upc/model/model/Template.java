@@ -25,6 +25,7 @@ public class Template {
     @NotNull
     private String title;
     private long authorId;
+    private int spaceCount;
 
     private Date createDate;
 
@@ -33,7 +34,7 @@ public class Template {
 
 
     public Template(String goal, String theory, String equipment, String demand, String data, String warning,
-                    String thinking, String title, long authorId, Date createDate) {
+                    String thinking, String title, long authorId, int spaceCount, Date createDate) {
         this.goal = goal;
         this.theory = theory;
         this.equipment = equipment;
@@ -43,7 +44,16 @@ public class Template {
         this.thinking = thinking;
         this.title = title;
         this.authorId = authorId;
+        this.spaceCount = spaceCount;
         this.createDate = createDate;
+    }
+
+    public void setSpaceCount(int spaceCount) {
+        this.spaceCount = spaceCount;
+    }
+
+    public int getSpaceCount() {
+        return spaceCount;
     }
 
     public void setId(long id) {
