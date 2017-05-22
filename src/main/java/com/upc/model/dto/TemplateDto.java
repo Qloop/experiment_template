@@ -1,5 +1,8 @@
 package com.upc.model.dto;
 
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
 /**
  * Created by Qloop on 2017/5/21.
  */
@@ -20,13 +23,24 @@ public class TemplateDto {
      */
     private String result;
     private String goal;
-    private String data;
-    private String equipment;
-    private String warning;
-    private String title;
-    private String demand;
-    private String thinking;
+    private int goalSPCount;
     private String theory;
+    private int theorySPCount;
+    private String equipment;
+    private int equipmentSPCount;
+    private String demand;
+    private int demandSPCount;
+    private String data;
+    private int dataSPCount;
+    private String warning;
+    private int warningSPCount;
+    private String thinking;
+
+    @NotNull
+    private String title;
+    private long authorId;
+
+    private Date createDate;
 
 
     public TemplateDto() {
@@ -37,17 +51,91 @@ public class TemplateDto {
         this.result = result;
     }
 
-    public TemplateDto(String result, String goal, String data, String equipment, String warning,
-                       String title, String demand, String thinking, String theory) {
+    public TemplateDto(String result, String goal, int goalSPCount, String theory,
+                       int theorySPCount, String equipment, int equipmentSPCount, String demand, int demandSPCount,
+                       String data, int dataSPCount, String warning, int warningSPCount, String thinking, String title,
+                       long authorId, Date createDate) {
         this.result = result;
         this.goal = goal;
-        this.data = data;
-        this.equipment = equipment;
-        this.warning = warning;
-        this.title = title;
-        this.demand = demand;
-        this.thinking = thinking;
+        this.goalSPCount = goalSPCount;
         this.theory = theory;
+        this.theorySPCount = theorySPCount;
+        this.equipment = equipment;
+        this.equipmentSPCount = equipmentSPCount;
+        this.demand = demand;
+        this.demandSPCount = demandSPCount;
+        this.data = data;
+        this.dataSPCount = dataSPCount;
+        this.warning = warning;
+        this.warningSPCount = warningSPCount;
+        this.thinking = thinking;
+        this.title = title;
+        this.authorId = authorId;
+        this.createDate = createDate;
+    }
+
+    public void setGoalSPCount(int goalSPCount) {
+        this.goalSPCount = goalSPCount;
+    }
+
+    public void setTheorySPCount(int theorySPCount) {
+        this.theorySPCount = theorySPCount;
+    }
+
+    public void setEquipmentSPCount(int equipmentSPCount) {
+        this.equipmentSPCount = equipmentSPCount;
+    }
+
+    public void setDemandSPCount(int demandSPCount) {
+        this.demandSPCount = demandSPCount;
+    }
+
+    public void setDataSPCount(int dataSPCount) {
+        this.dataSPCount = dataSPCount;
+    }
+
+    public void setWarningSPCount(int warningSPCount) {
+        this.warningSPCount = warningSPCount;
+    }
+
+    public void setAuthorId(long authorId) {
+        this.authorId = authorId;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public int getGoalSPCount() {
+        return goalSPCount;
+    }
+
+    public int getTheorySPCount() {
+        return theorySPCount;
+    }
+
+    public int getEquipmentSPCount() {
+        return equipmentSPCount;
+    }
+
+    public int getDemandSPCount() {
+        return demandSPCount;
+    }
+
+    public int getDataSPCount() {
+        return dataSPCount;
+    }
+
+    public int getWarningSPCount() {
+        return warningSPCount;
+    }
+
+    public long getAuthorId() {
+        return authorId;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
     }
 
     public void setResult(String result) {

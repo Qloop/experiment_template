@@ -45,7 +45,7 @@ public class TemplateService {
         Template templateBean = gson.fromJson(templateContent, Template.class);
         //noinspection Duplicates
         if (templateBean == null) {
-            map.put("result", (long)Config.Convert_ERROR_CODE);
+            map.put("result", (long) Config.Convert_ERROR_CODE);
             return map;
         } else {
             templateBean.setCreateDate(new Date());
@@ -64,8 +64,11 @@ public class TemplateService {
         if (template == null) {
             return new TemplateDto(Config.NOT_FIND + "");
         } else {
-            TemplateDto templateDto = new TemplateDto(Config.SUCCESS_CODE + "", template.getGoal(), template.getData(), template.getEquipment(),
-                    template.getWarning(), template.getTitle(), template.getDemand(), template.getThinking(), template.getTheory());
+            TemplateDto templateDto = new TemplateDto(Config.SUCCESS_CODE + "", template.getGoal(), template.getGoalSPCount(),
+                    template.getTheory(), template.getTheorySPCount(), template.getEquipment(), template.getEquipmentSPCount(),
+                    template.getDemand(), template.getDemandSPCount(), template.getData(), template.getDataSPCount(),
+                    template.getWarning(), template.getWarningSPCount(), template.getThinking(), template.getTitle(),
+                    template.getAuthorId(), template.getCreateDate());
             return templateDto;
         }
     }
