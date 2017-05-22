@@ -1,5 +1,6 @@
 package com.upc.model.controller;
 
+import com.upc.model.dto.StuReportDto;
 import com.upc.model.dto.TemplateDto;
 import com.upc.model.service.TemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ public class DisplayController {
     @RequestMapping(value = "/display", method = RequestMethod.GET)
     public TemplateDto displayTemplate(long id){
         return templateService.getTemplate(id);
+    }
+
+    @RequestMapping(value = "/teacher_watch", method = RequestMethod.GET)
+    public StuReportDto displayStuReport(long templateId, long stuId){
+        return templateService.getStuReport(templateId, stuId);
     }
 
 }

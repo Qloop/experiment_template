@@ -10,11 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -28,16 +29,21 @@ public class ReportService {
 //    @Autowired
 //    private HttpServletRequest httpServletRequest;
 
-    public String save(String reportJsonContent) {
+    public Map<String, Long> save(String reportJsonContent) {
+        Map<String, Long> map = new HashMap<>();
         Gson gson = new Gson();
         StuReport stuReport = gson.fromJson(reportJsonContent, StuReport.class);
         //noinspection Duplicates
         if (stuReport == null) {
-            return Config.Convert_ERROR_CODE + "";
+            map.put("result", (long) Config.Convert_ERROR_CODE);
+            return map;
         } else {
             stuReport.setCreateDate(new Date());
             stuReportDao.save(stuReport);
-            return Config.SUCCESS_CODE + "";
+
+            map.put("result", (long) Config.SUCCESS_CODE);
+            map.put("stuReportId", stuReport.getId());
+            return map;
         }
     }
 
@@ -64,7 +70,6 @@ public class ReportService {
                         } else {
                             imageUrlsDto.setUrls(Config.BASE_URL + outFile.getAbsolutePath().replace(Config.UPLOAD_PATH, ""));
                         }
-//                        "http://118.89.112.50/\\var\\www\\2793ca3f4-d088-474e-88c8-b9f3ad2c2351.jpg"
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -15,11 +15,17 @@ public class Template {
     private long id;
 
     private String goal;
+    private int goalSPCount;
     private String theory;
+    private int theorySPCount;
     private String equipment;
+    private int equipmentSPCount;
     private String demand;
+    private int demandSPCount;
     private String data;
+    private int dataSPCount;
     private String warning;
+    private int warningSPCount;
     private String thinking;
 
     @NotNull
@@ -44,6 +50,54 @@ public class Template {
         this.title = title;
         this.authorId = authorId;
         this.createDate = createDate;
+    }
+
+    public void setGoalSPCount(int goalSPCount) {
+        this.goalSPCount = goalSPCount;
+    }
+
+    public void setTheorySPCount(int theorySPCount) {
+        this.theorySPCount = theorySPCount;
+    }
+
+    public void setEquipmentSPCount(int equipmentSPCount) {
+        this.equipmentSPCount = equipmentSPCount;
+    }
+
+    public void setDemandSPCount(int demandSPCount) {
+        this.demandSPCount = demandSPCount;
+    }
+
+    public void setDataSPCount(int dataSPCount) {
+        this.dataSPCount = dataSPCount;
+    }
+
+    public void setWarningSPCount(int warningSPCount) {
+        this.warningSPCount = warningSPCount;
+    }
+
+    public int getGoalSPCount() {
+        return goalSPCount;
+    }
+
+    public int getTheorySPCount() {
+        return theorySPCount;
+    }
+
+    public int getEquipmentSPCount() {
+        return equipmentSPCount;
+    }
+
+    public int getDemandSPCount() {
+        return demandSPCount;
+    }
+
+    public int getDataSPCount() {
+        return dataSPCount;
+    }
+
+    public int getWarningSPCount() {
+        return warningSPCount;
     }
 
     public void setId(long id) {

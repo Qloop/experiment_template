@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 /**
  * Created by Qloop on 2017/5/19.
  */
@@ -22,7 +24,7 @@ public class CreateController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createTemplate(@RequestBody String templateJsonContent) {
+    public Map<String, Long> createTemplate(@RequestBody String templateJsonContent) {
         return templateService.createTemplate(templateJsonContent);
     }
 }

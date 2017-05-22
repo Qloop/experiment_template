@@ -15,5 +15,7 @@ public interface StuReportDao extends CrudRepository<StuReport, Long> {
 
     StuReport findByStuId(long stuId);
 
+    StuReport findByStuIdAndTemplateId(long stuId, long templateId);
+
     Iterable<StuReport> findByTemplateId(long templateId);
 }
