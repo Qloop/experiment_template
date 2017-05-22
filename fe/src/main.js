@@ -10,7 +10,6 @@ import 'element-ui/lib/theme-default/index.css'
 Vue.use(ElementUI)
 Vue.use(VueResource)
 
-Vue.http.options.emulateJSON = true
 Vue.http.options.credentials = true
 
 Vue.config.productionTip = false
