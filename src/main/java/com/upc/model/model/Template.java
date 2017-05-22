@@ -15,17 +15,17 @@ public class Template {
     private long id;
 
     private String goal;
-    private int goalSPCount;
+    private String goalSPCount = "0";
     private String theory;
-    private int theorySPCount;
+    private String theorySPCount = "0";
     private String equipment;
-    private int equipmentSPCount;
+    private String equipmentSPCount = "0";
     private String demand;
-    private int demandSPCount;
+    private String demandSPCount = "0";
     private String data;
-    private int dataSPCount;
+    private String dataSPCount = "0";
     private String warning;
-    private int warningSPCount;
+    private String warningSPCount = "0";
     private String thinking;
 
     @NotNull
@@ -52,54 +52,6 @@ public class Template {
         this.createDate = createDate;
     }
 
-    public void setGoalSPCount(int goalSPCount) {
-        this.goalSPCount = goalSPCount;
-    }
-
-    public void setTheorySPCount(int theorySPCount) {
-        this.theorySPCount = theorySPCount;
-    }
-
-    public void setEquipmentSPCount(int equipmentSPCount) {
-        this.equipmentSPCount = equipmentSPCount;
-    }
-
-    public void setDemandSPCount(int demandSPCount) {
-        this.demandSPCount = demandSPCount;
-    }
-
-    public void setDataSPCount(int dataSPCount) {
-        this.dataSPCount = dataSPCount;
-    }
-
-    public void setWarningSPCount(int warningSPCount) {
-        this.warningSPCount = warningSPCount;
-    }
-
-    public int getGoalSPCount() {
-        return goalSPCount;
-    }
-
-    public int getTheorySPCount() {
-        return theorySPCount;
-    }
-
-    public int getEquipmentSPCount() {
-        return equipmentSPCount;
-    }
-
-    public int getDemandSPCount() {
-        return demandSPCount;
-    }
-
-    public int getDataSPCount() {
-        return dataSPCount;
-    }
-
-    public int getWarningSPCount() {
-        return warningSPCount;
-    }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -108,24 +60,48 @@ public class Template {
         this.goal = goal;
     }
 
+    public void setGoalSPCount(String goalSPCount) {
+        this.goalSPCount = goalSPCount;
+    }
+
     public void setTheory(String theory) {
         this.theory = theory;
+    }
+
+    public void setTheorySPCount(String theorySPCount) {
+        this.theorySPCount = theorySPCount;
     }
 
     public void setEquipment(String equipment) {
         this.equipment = equipment;
     }
 
+    public void setEquipmentSPCount(String equipmentSPCount) {
+        this.equipmentSPCount = equipmentSPCount;
+    }
+
     public void setDemand(String demand) {
         this.demand = demand;
+    }
+
+    public void setDemandSPCount(String demandSPCount) {
+        this.demandSPCount = demandSPCount;
     }
 
     public void setData(String data) {
         this.data = data;
     }
 
+    public void setDataSPCount(String dataSPCount) {
+        this.dataSPCount = dataSPCount;
+    }
+
     public void setWarning(String warning) {
         this.warning = warning;
+    }
+
+    public void setWarningSPCount(String warningSPCount) {
+        this.warningSPCount = warningSPCount;
     }
 
     public void setThinking(String thinking) {
@@ -152,24 +128,48 @@ public class Template {
         return goal;
     }
 
+    public String getGoalSPCount() {
+        return goalSPCount;
+    }
+
     public String getTheory() {
         return theory;
+    }
+
+    public String getTheorySPCount() {
+        return theorySPCount;
     }
 
     public String getEquipment() {
         return equipment;
     }
 
+    public String getEquipmentSPCount() {
+        return equipmentSPCount;
+    }
+
     public String getDemand() {
         return demand;
+    }
+
+    public String getDemandSPCount() {
+        return demandSPCount;
     }
 
     public String getData() {
         return data;
     }
 
+    public String getDataSPCount() {
+        return dataSPCount;
+    }
+
     public String getWarning() {
         return warning;
+    }
+
+    public String getWarningSPCount() {
+        return warningSPCount;
     }
 
     public String getThinking() {

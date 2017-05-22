@@ -23,17 +23,17 @@ public class TemplateDto {
      */
     private String result;
     private String goal;
-    private int goalSPCount;
+    private String goalSPCount;
     private String theory;
-    private int theorySPCount;
+    private String theorySPCount;
     private String equipment;
-    private int equipmentSPCount;
+    private String equipmentSPCount;
     private String demand;
-    private int demandSPCount;
+    private String demandSPCount;
     private String data;
-    private int dataSPCount;
+    private String dataSPCount;
     private String warning;
-    private int warningSPCount;
+    private String warningSPCount;
     private String thinking;
 
     @NotNull
@@ -51,9 +51,9 @@ public class TemplateDto {
         this.result = result;
     }
 
-    public TemplateDto(String result, String goal, int goalSPCount, String theory,
-                       int theorySPCount, String equipment, int equipmentSPCount, String demand, int demandSPCount,
-                       String data, int dataSPCount, String warning, int warningSPCount, String thinking, String title,
+    public TemplateDto(String result, String goal, String goalSPCount, String theory,
+                       String theorySPCount, String equipment, String equipmentSPCount, String demand, String demandSPCount,
+                       String data, String dataSPCount, String warning, String warningSPCount, String thinking, String title,
                        long authorId, Date createDate) {
         this.result = result;
         this.goal = goal;
@@ -74,28 +74,64 @@ public class TemplateDto {
         this.createDate = createDate;
     }
 
-    public void setGoalSPCount(int goalSPCount) {
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
+
+    public void setGoalSPCount(String goalSPCount) {
         this.goalSPCount = goalSPCount;
     }
 
-    public void setTheorySPCount(int theorySPCount) {
+    public void setTheory(String theory) {
+        this.theory = theory;
+    }
+
+    public void setTheorySPCount(String theorySPCount) {
         this.theorySPCount = theorySPCount;
     }
 
-    public void setEquipmentSPCount(int equipmentSPCount) {
+    public void setEquipment(String equipment) {
+        this.equipment = equipment;
+    }
+
+    public void setEquipmentSPCount(String equipmentSPCount) {
         this.equipmentSPCount = equipmentSPCount;
     }
 
-    public void setDemandSPCount(int demandSPCount) {
+    public void setDemand(String demand) {
+        this.demand = demand;
+    }
+
+    public void setDemandSPCount(String demandSPCount) {
         this.demandSPCount = demandSPCount;
     }
 
-    public void setDataSPCount(int dataSPCount) {
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public void setDataSPCount(String dataSPCount) {
         this.dataSPCount = dataSPCount;
     }
 
-    public void setWarningSPCount(int warningSPCount) {
+    public void setWarning(String warning) {
+        this.warning = warning;
+    }
+
+    public void setWarningSPCount(String warningSPCount) {
         this.warningSPCount = warningSPCount;
+    }
+
+    public void setThinking(String thinking) {
+        this.thinking = thinking;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setAuthorId(long authorId) {
@@ -106,28 +142,64 @@ public class TemplateDto {
         this.createDate = createDate;
     }
 
-    public int getGoalSPCount() {
+    public String getResult() {
+        return result;
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public String getGoalSPCount() {
         return goalSPCount;
     }
 
-    public int getTheorySPCount() {
+    public String getTheory() {
+        return theory;
+    }
+
+    public String getTheorySPCount() {
         return theorySPCount;
     }
 
-    public int getEquipmentSPCount() {
+    public String getEquipment() {
+        return equipment;
+    }
+
+    public String getEquipmentSPCount() {
         return equipmentSPCount;
     }
 
-    public int getDemandSPCount() {
+    public String getDemand() {
+        return demand;
+    }
+
+    public String getDemandSPCount() {
         return demandSPCount;
     }
 
-    public int getDataSPCount() {
+    public String getData() {
+        return data;
+    }
+
+    public String getDataSPCount() {
         return dataSPCount;
     }
 
-    public int getWarningSPCount() {
+    public String getWarning() {
+        return warning;
+    }
+
+    public String getWarningSPCount() {
         return warningSPCount;
+    }
+
+    public String getThinking() {
+        return thinking;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public long getAuthorId() {
@@ -136,77 +208,5 @@ public class TemplateDto {
 
     public Date getCreateDate() {
         return createDate;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setGoal(String goal) {
-        this.goal = goal;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public void setEquipment(String equipment) {
-        this.equipment = equipment;
-    }
-
-    public void setWarning(String warning) {
-        this.warning = warning;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDemand(String demand) {
-        this.demand = demand;
-    }
-
-    public void setThinking(String thinking) {
-        this.thinking = thinking;
-    }
-
-    public void setTheory(String theory) {
-        this.theory = theory;
-    }
-
-    public String getGoal() {
-        return goal;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public String getEquipment() {
-        return equipment;
-    }
-
-    public String getWarning() {
-        return warning;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDemand() {
-        return demand;
-    }
-
-    public String getThinking() {
-        return thinking;
-    }
-
-    public String getTheory() {
-        return theory;
     }
 }

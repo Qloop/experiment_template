@@ -26,19 +26,7 @@ public class TemplateService {
     @Autowired
     private StuReportDao stuReportDao;
 
-    /**
-     * {
-     * "authorId": "123",
-     * "title": "实验标题",
-     * "goal": "实验目的",
-     * "theory": "实验原理",
-     * "equipment": "实验器材",
-     * "demand": "实验要求",
-     * "warning": "注意事项",
-     * "data": "实验数据记录和处理",
-     * "thinking": "思考与讨论"
-     * }
-     */
+
     public Map<String, Long> createTemplate(String templateContent) {
         Map<String, Long> map = new HashMap<>();
         Gson gson = new Gson();
