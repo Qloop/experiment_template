@@ -18,7 +18,6 @@ export default {
   },
   watch: {
     text(val, oldVal) {
-      console.log(val);
       this.compile();
     }
   },
@@ -35,14 +34,16 @@ export default {
       let inputFormString = '';
       for (let i = 0; i < this.questionNumber; i++) {
         let key = 'question'+i;
-        data[key] = '问题' + i;
+        data[key] = ' 问题' + i + ' ';
         inputFormString += `<input v-model="${key}">`
       }
       let tempComponent = new Vue({
         template: `
-          <div>
+          <div class="form-container" id="${this.componentId}">
             <p>${self.text}</p>
-            ${inputFormString}
+            <div class="input-area">
+              ${inputFormString}
+            </div>
           </div>
         `,
         parent: this,
