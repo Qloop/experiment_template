@@ -15,17 +15,22 @@ public class Template {
     private long id;
 
     private String goal;
+    private int goalSPCount;
     private String theory;
+    private int theorySPCount;
     private String equipment;
+    private int equipmentSPCount;
     private String demand;
+    private int demandSPCount;
     private String data;
+    private int dataSPCount;
     private String warning;
+    private int warningSPCount;
     private String thinking;
 
     @NotNull
     private String title;
     private long authorId;
-    private int spaceCount;
 
     private Date createDate;
 
@@ -34,7 +39,7 @@ public class Template {
 
 
     public Template(String goal, String theory, String equipment, String demand, String data, String warning,
-                    String thinking, String title, long authorId, int spaceCount, Date createDate) {
+                    String thinking, String title, long authorId, Date createDate) {
         this.goal = goal;
         this.theory = theory;
         this.equipment = equipment;
@@ -44,16 +49,55 @@ public class Template {
         this.thinking = thinking;
         this.title = title;
         this.authorId = authorId;
-        this.spaceCount = spaceCount;
         this.createDate = createDate;
     }
 
-    public void setSpaceCount(int spaceCount) {
-        this.spaceCount = spaceCount;
+    public void setGoalSPCount(int goalSPCount) {
+        this.goalSPCount = goalSPCount;
     }
 
-    public int getSpaceCount() {
-        return spaceCount;
+    public void setTheorySPCount(int theorySPCount) {
+        this.theorySPCount = theorySPCount;
+    }
+
+    public void setEquipmentSPCount(int equipmentSPCount) {
+        this.equipmentSPCount = equipmentSPCount;
+    }
+
+    public void setDemandSPCount(int demandSPCount) {
+        this.demandSPCount = demandSPCount;
+    }
+
+    public void setDataSPCount(int dataSPCount) {
+        this.dataSPCount = dataSPCount;
+    }
+
+    public void setWarningSPCount(int warningSPCount) {
+        this.warningSPCount = warningSPCount;
+    }
+
+    public int getGoalSPCount() {
+        return goalSPCount;
+    }
+
+    public int getTheorySPCount() {
+        return theorySPCount;
+    }
+
+    public int getEquipmentSPCount() {
+        return equipmentSPCount;
+    }
+
+    public int getDemandSPCount() {
+        return demandSPCount;
+    }
+
+    public int getDataSPCount() {
+        return dataSPCount;
+    }
+
+    public int getWarningSPCount() {
+        return warningSPCount;
     }
 
     public void setId(long id) {

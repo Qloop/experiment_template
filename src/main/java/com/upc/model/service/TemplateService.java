@@ -37,7 +37,6 @@ public class TemplateService {
      * "warning": "注意事项",
      * "data": "实验数据记录和处理",
      * "thinking": "思考与讨论"
-     * "spaceCount": 20
      * }
      */
     public Map<String, Long> createTemplate(String templateContent) {
