@@ -55,14 +55,19 @@
             <el-input type="textarea" v-model="form.warning"></el-input>
           </el-form-item>
           <el-form-item label="问题数量">
-            <el-input v-model="form.warning"></el-input>
+            <el-input v-model="form.warningSPCount"></el-input>
           </el-form-item>
         </div>
 
+        <div class="form-group">
+          <el-form-item label="实验数据记录和处理">
+            <el-input type="textarea" v-model="form.data"></el-input>
+          </el-form-item>
+          <el-form-item label="问题数量">
+            <el-input v-model="form.dataSPCount"></el-input>
+          </el-form-item>
+        </div>
 
-        <el-form-item label="实验数据记录和处理">
-          <el-input type="textarea" v-model="form.data"></el-input>
-        </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">立即创建</el-button>
           <el-button>取消</el-button>
@@ -81,11 +86,17 @@
         form: {
           title: '',
           goal: '',
+          goalSPCount: '',
           theory: '',
+          theorySPCount: '',
           equipment: '',
+          equipmentSPCount: '',
           demand: '',
+          demandSPCount: '',
           warning: '',
+          warningSPCount: '',
           data: '',
+          dataSPCount: '',
           thinking: ''
         }
       }
@@ -137,7 +148,7 @@
       .form-group {
         border: 2px solid blue;
         padding: 20px 20px 0 0;
-        margin-top: 10px;
+        margin: 10px 0;
       }
     }
   }
