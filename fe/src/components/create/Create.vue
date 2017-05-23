@@ -10,6 +10,11 @@
         <p class="link"><span v-on:click="toExample">样例</span></p>
       </div>
       <el-form ref="form" :model="form" label-width="80px">
+
+        <el-form-item label="创建者ID">
+          <el-input v-model="form.authorId" placeholder="输入您的工号，作为查阅您创建的模板的凭据"></el-input>
+        </el-form-item>
+
         <el-form-item label="实验标题">
           <el-input v-model="form.title" placeholder="输入实验标题"></el-input>
         </el-form-item>
@@ -19,7 +24,7 @@
             <el-input type="textarea" v-model="form.goal"></el-input>
           </el-form-item>
           <el-form-item label="问题数量">
-            <el-input v-model="form.goalSPCount"></el-input>
+            <el-input type="number" v-model="form.goalSPCount"></el-input>
           </el-form-item>
         </div>
 
@@ -28,7 +33,7 @@
             <el-input type="textarea" v-model="form.theory"></el-input>
           </el-form-item>
           <el-form-item label="问题数量">
-            <el-input v-model="form.theorySPCount"></el-input>
+            <el-input type="number" v-model="form.theorySPCount"></el-input>
           </el-form-item>
         </div>
 
@@ -37,7 +42,7 @@
             <el-input type="textarea" v-model="form.equipment"></el-input>
           </el-form-item>
           <el-form-item label="问题数量">
-            <el-input v-model="form.equipmentSPCount"></el-input>
+            <el-input type="number" v-model="form.equipmentSPCount"></el-input>
           </el-form-item>
         </div>
 
@@ -46,7 +51,7 @@
             <el-input type="textarea" v-model="form.demand"></el-input>
           </el-form-item>
           <el-form-item label="问题数量">
-            <el-input v-model="form.demandSPCount"></el-input>
+            <el-input type="number" v-model="form.demandSPCount"></el-input>
           </el-form-item>
         </div>
 
@@ -55,7 +60,7 @@
             <el-input type="textarea" v-model="form.warning"></el-input>
           </el-form-item>
           <el-form-item label="问题数量">
-            <el-input v-model="form.warningSPCount"></el-input>
+            <el-input type="number" v-model="form.warningSPCount"></el-input>
           </el-form-item>
         </div>
 
@@ -64,7 +69,7 @@
             <el-input type="textarea" v-model="form.data"></el-input>
           </el-form-item>
           <el-form-item label="问题数量">
-            <el-input v-model="form.dataSPCount"></el-input>
+            <el-input type="number" v-model="form.dataSPCount"></el-input>
           </el-form-item>
         </div>
 
@@ -84,19 +89,20 @@
     data() {
       return {
         form: {
+          authorId: '',
           title: '',
           goal: '',
-          goalSPCount: '',
+          goalSPCount: 0,
           theory: '',
-          theorySPCount: '',
+          theorySPCount: 0,
           equipment: '',
-          equipmentSPCount: '',
+          equipmentSPCount: 0,
           demand: '',
-          demandSPCount: '',
+          demandSPCount: 0,
           warning: '',
-          warningSPCount: '',
+          warningSPCount: 0,
           data: '',
-          dataSPCount: '',
+          dataSPCount: 0,
           thinking: ''
         }
       }

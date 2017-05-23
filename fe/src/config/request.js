@@ -9,6 +9,7 @@ const API = {
   display(reportId){
     return baseUrl + '/display/?id=' + reportId
   },
+  templateList: baseUrl + '/template_list',
   submitImages: baseUrl + '/submit_imgs',
   submitReport: baseUrl + '/submit_report'
 };

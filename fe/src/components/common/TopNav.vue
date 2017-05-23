@@ -16,8 +16,16 @@
       }
     },
     methods: {
-      handleSelect() {
-
+      handleSelect(select) {
+//        console.log(select)
+        switch (select) {
+          case '1':
+            this.$router.push('/create');
+            break;
+          case '2':
+            this.$router.push('/display');
+            break;
+        }
       }
     }
   }
