@@ -8,11 +8,11 @@
   import API from '../../config/request';
   export default {
     created() {
-
+      this.loadData()
     },
     methods: {
       loadData() {
-        this.$http.get(API.teacherWatch(this.$route.params.stuid, this.$route.params.tplid)).then(
+        this.$http.get(API.teacherWatch(this.$route.params.tplid, this.$route.params.stuid)).then(
           (res) => {
             console.log(res.data);
           }
