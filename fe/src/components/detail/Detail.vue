@@ -1,5 +1,6 @@
 <template>
   <div class="detail-container">
+    <el-button type="primary" v-on:click="print">打印</el-button>
     <h1>{{data.title}}</h1>
     <h2>实验目的</h2>
     <p>{{data.goalRept}}</p>
@@ -30,6 +31,9 @@
       this.loadData()
     },
     methods: {
+      print() {
+        window.print();
+      },
       loadData() {
         this.$http.get(API.teacherWatch(this.$route.params.tplid, this.$route.params.stuid)).then(
           (res) => {
