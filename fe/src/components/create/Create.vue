@@ -78,6 +78,7 @@
           <el-button>取消</el-button>
         </el-form-item>
       </el-form>
+      <div id="qrcode"></div>
     </div>
   </div>
 </template>
@@ -115,6 +116,7 @@
         this.$http.post(API.create, postData).then(
           (res) => {
             console.log(res);
+            new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
           }
         )
       },
