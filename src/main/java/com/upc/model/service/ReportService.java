@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.upc.model.config.Config;
 import com.upc.model.dao.StuReportDao;
 import com.upc.model.dto.ImageUrlsDto;
+import com.upc.model.dto.ReportListDto;
 import com.upc.model.model.StuReport;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Qloop on 2017/5/21.
@@ -108,6 +106,27 @@ public class ReportService {
             }
         }
         return false;
+    }
+
+
+    public ReportListDto getAllReportByTemplateId(long temnplateId) {
+        ReportListDto reportListDto = new ReportListDto();
+        Iterable<StuReport> reportIterable = stuReportDao.findByTemplateId(temnplateId);
+        if (reportIterable != null) {
+            reportListDto.setResult(Config.SUCCESS_CODE + "");
+            List<ReportListDto.ReportBean> reportBeanList = new ArrayList<>();
+            for (StuReport stuReport : reportIterable) {
+                ReportListDto.ReportBean reportBean = new ReportListDto.ReportBean();
+                reportBean.setStuId(stuReport.getStuId());
+                reportBean.setStuName(stuReport.getStuName());
+                reportBean.setStuClass(stuReport.getStuClass());
+                reportBeanList.add(reportBean);
+            }
+            reportListDto.setReportBeanList(reportBeanList);
+        } else {
+            reportListDto.setResult(Config.NOT_FIND + "");
+        }
+        return reportListDto;
     }
 
     /**

@@ -11,5 +11,5 @@ import org.springframework.transaction.annotation.Transactional;
 public interface TemplateDao extends CrudRepository<Template, Long> {
     Template findById(long id);
 
-    Template findByAuthorId(long authorId);
+    Iterable<Template> findByAuthorId(long authorId);
 }

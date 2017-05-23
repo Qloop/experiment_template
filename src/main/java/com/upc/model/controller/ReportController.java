@@ -29,4 +29,5 @@ public class ReportController {
     public ImageUrlsDto postImgs(@RequestParam("imgs") MultipartFile[] files, long templateId) {
         return reportService.saveImgs(files, templateId);
     }
+
 }

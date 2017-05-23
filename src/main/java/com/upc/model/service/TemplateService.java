@@ -6,14 +6,13 @@ import com.upc.model.dao.StuReportDao;
 import com.upc.model.dao.TemplateDao;
 import com.upc.model.dto.StuReportDto;
 import com.upc.model.dto.TemplateDto;
+import com.upc.model.dto.TemplateListDto;
 import com.upc.model.model.StuReport;
 import com.upc.model.model.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Qloop on 2017/5/20.
@@ -83,5 +82,25 @@ public class TemplateService {
             stuReportDto.setResult(Config.NOT_FIND + "");
         }
         return stuReportDto;
+    }
+
+    public TemplateListDto getAllTemplateByAuthorId(long authorId) {
+        Iterable<Template> templateIterable = templateDao.findByAuthorId(authorId);
+        TemplateListDto templateListDto = new TemplateListDto();
+        if (templateIterable != null) {
+            templateListDto.setResult(Config.SUCCESS_CODE + "");
+            List<TemplateListDto.TemplateBean> templateBeanList = new ArrayList<>();
+            for (Template template : templateIterable) {
+                TemplateListDto.TemplateBean templateBean = new TemplateListDto.TemplateBean();
+                templateBean.setTemplateId(template.getId());
+                templateBean.setTitle(template.getTitle());
+                templateBean.setCreateDate(template.getCreateDate().toString());
+                templateBeanList.add(templateBean);
+            }
+            templateListDto.setTemplateBeanList(templateBeanList);
+        } else {
+            templateListDto.setResult(Config.NOT_FIND + "");
+        }
+        return templateListDto;
     }
 }
