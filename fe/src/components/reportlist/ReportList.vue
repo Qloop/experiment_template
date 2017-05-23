@@ -25,7 +25,7 @@
           label="操作"
           width="100">
           <template scope="scope">
-            <el-button v-on:click="handleTableClick(scope)" type="text" size="small">查看</el-button>
+            <el-button v-on:click="handleTableClick(scope.row)" type="text" size="small">查看</el-button>
             <!--<el-button type="text" size="small">编辑</el-button>-->
           </template>
         </el-table-column>
@@ -55,8 +55,10 @@
             this.reportList = res.data.reportBeanList;
           }
         )
-      }
-    },
+      },
+      handleTableClick (row) {
+        this.$router.push({name: 'Detail', params: {stuid: row.stuId, tplid: this.$route.params.id}})
+      },
     components: {
       TopNav
     }
