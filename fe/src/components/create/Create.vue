@@ -10,6 +10,11 @@
         <p class="link"><span v-on:click="toExample">样例</span></p>
       </div>
       <el-form ref="form" :model="form" label-width="80px">
+
+        <el-form-item label="创建者ID">
+          <el-input v-model="form.authorId" placeholder="输入您的工号，作为查阅您创建的模板的凭据"></el-input>
+        </el-form-item>
+
         <el-form-item label="实验标题">
           <el-input v-model="form.title" placeholder="输入实验标题"></el-input>
         </el-form-item>
@@ -84,6 +89,7 @@
     data() {
       return {
         form: {
+          authorId: '',
           title: '',
           goal: '',
           goalSPCount: 0,
