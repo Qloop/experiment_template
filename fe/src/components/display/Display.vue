@@ -35,7 +35,7 @@
             label="操作"
             width="100">
             <template scope="scope">
-              <el-button v-on:click="handleTableClick(scope)" type="text" size="small">查看</el-button>
+              <el-button v-on:click="handleTableClick(scope.row)" type="text" size="small">查看</el-button>
               <!--<el-button type="text" size="small">编辑</el-button>-->
             </template>
           </el-table-column>
@@ -63,7 +63,6 @@
       loadData() {
         this.$http.get(API.templateList + '?author=' + this.authorId).then(
           (res) => {
-            console.log(res.data);
             this.templateList = res.data.templateBeanList;
           }
         )
@@ -71,9 +70,8 @@
       onSearch() {
         this.loadData();
       },
-      handleTableClick(id) {
-          console.log(id)
-//        this.$router.push('/detail', )
+      handleTableClick(row) {
+        router.push({name: 'reportlist', param: {id: row.templateId}})
       }
     },
     components: {
