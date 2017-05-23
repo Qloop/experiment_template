@@ -1,6 +1,6 @@
 <template>
   <div class="detail-container">
-
+sds
   </div>
 </template>
 
