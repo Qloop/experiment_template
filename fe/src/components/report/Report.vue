@@ -33,6 +33,20 @@
     <h2>实验数据记录和处理</h2>
     <v-template component-id="data" :text="reportData.data"
                 :question-number="parseInt(reportData.dataSPCount)"></v-template>
+
+    <el-upload
+      class="upload-demo"
+      action="http://118.89.112.50:8082/submit_imgs"
+      :data="imgUpload"
+      name="imgs"
+      :on-success="handleSuccess"
+      :on-remove="handleFileRemove"
+      >
+      <el-button size="small" type="primary">点击上传</el-button>
+      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+
+
     <h2>思考与讨论</h2>
     <el-input type="textarea" :rows="10" v-model="form.thinking"></el-input>
 
@@ -50,11 +64,20 @@
         reportData: {
           goal: ''
         },
-        form: {}
+        form: {
+          name: '',
+          class: '',
+          number: ''
+        },
+        fileList: [],
+        imgUpload: {
+          templateId: 0
+        }
       }
     },
     created() {
       let reportId = this.$route.params.id;
+      this.imgUpload.templateId = reportId;
       this.$http.get(API.display(reportId)).then(
         (res) => {
           console.log(res.data);
@@ -64,17 +87,38 @@
     },
     methods: {
       getMessage() {
-        let goal = document.getElementById('goal').children[0].innerHTML;
-        let theory = document.getElementById('theory').children[0].innerHTML;
-        let equipment = document.getElementById('equipment').children[0].innerHTML;
-        let demand = document.getElementById('demand').children[0].innerHTML;
-        let warning = document.getElementById('warning').children[0].innerHTML;
-        let data = document.getElementById('data').children[0].innerHTML;
-        return {goal, theory, equipment, demand, warning, data}
+        let goalRept = document.getElementById('goal').children[0].innerHTML;
+        let theoryRept = document.getElementById('theory').children[0].innerHTML;
+        let equipmentRept = document.getElementById('equipment').children[0].innerHTML;
+        let demandRept = document.getElementById('demand').children[0].innerHTML;
+        let warningRept = document.getElementById('warning').children[0].innerHTML;
+        let dataRept = document.getElementById('data').children[0].innerHTML;
+        return {goalRept, theoryRept, equipmentRept, demandRept, warningRept, dataRept}
       },
       submit() {
         let postData = this.getMessage();
-        console.log(obj);
+        postData.stuName = this.form.name;
+        postData.stuClass = this.form.class;
+        postData.stuId = this.form.number;
+        postData.thinkingRept = this.form.thinking;
+        postData.templateId = this.$route.params.id;
+        postData.imgs = JSON.stringify(this.fileList);
+
+        this.$http.post(API.submitReport, postData).then(
+          (res) => {
+            console.log(res.data)
+            if (res.data.result === 0) {
+                
+            }
+          }
+        )
+      },
+      handleSuccess(res) {
+        this.fileList.push(res.urls);
+      },
+      handleFileRemove(file) {
+        let index = this.fileList.indexOf(file.response.urls);
+        this.fileList.splice(index, 1);
       }
     },
     components: {
