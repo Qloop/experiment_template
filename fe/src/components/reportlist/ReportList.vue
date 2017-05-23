@@ -59,6 +59,7 @@
       handleTableClick (row) {
         this.$router.push({name: 'Detail', params: {stuid: row.stuId, tplid: this.$route.params.id}})
       },
+    },
     components: {
       TopNav
     }
