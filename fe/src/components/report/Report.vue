@@ -106,9 +106,11 @@
 
         this.$http.post(API.submitReport, postData).then(
           (res) => {
-            console.log(res.data)
             if (res.data.result === 0) {
-                
+              this.$notify({
+                title: '提交成功',
+                type: 'success'
+              });
             }
           }
         )
