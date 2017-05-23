@@ -25,7 +25,7 @@ public class StuReportDto {
     private String stuClass;
     private String dataRept;
     private String thinkingRept;
-    private Date createDate;
+    private String createDate;
 
     public void setResult(String result) {
         this.result = result;
@@ -84,7 +84,7 @@ public class StuReportDto {
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.createDate = createDate.toString();
     }
 
     public String getResult() {
@@ -143,7 +143,7 @@ public class StuReportDto {
         return thinkingRept;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 }

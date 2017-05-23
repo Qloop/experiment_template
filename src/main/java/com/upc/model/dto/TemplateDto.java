@@ -40,7 +40,7 @@ public class TemplateDto {
     private String title;
     private long authorId;
 
-    private Date createDate;
+    private String createDate;
 
 
     public TemplateDto() {
@@ -71,7 +71,7 @@ public class TemplateDto {
         this.thinking = thinking;
         this.title = title;
         this.authorId = authorId;
-        this.createDate = createDate;
+        this.createDate = createDate.toString();
     }
 
     public void setResult(String result) {
@@ -139,7 +139,7 @@ public class TemplateDto {
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.createDate = createDate.toString();
     }
 
     public String getResult() {
@@ -206,7 +206,7 @@ public class TemplateDto {
         return authorId;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 }

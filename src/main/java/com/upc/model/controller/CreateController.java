@@ -20,7 +20,7 @@ public class CreateController {
 
     @RequestMapping(value = "/")
     public String hello() {
-        return "hello";
+        return "Auto Template";
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
