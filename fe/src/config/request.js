@@ -11,7 +11,9 @@ const API = {
   },
   templateList: baseUrl + '/template_list',
   submitImages: baseUrl + '/submit_imgs',
-  submitReport: baseUrl + '/submit_report'
+  submitReport: baseUrl + '/submit_report',
+  reportList(templateId){return baseUrl + '/get_stu_info?templateId=' + templateId},
+  teacherWatch(tplId, stuId) {return baseUrl + '/teacher_watch?templateId=' + tplId + '&stuId=' + stuId}
 };
 
 module.exports = API;
