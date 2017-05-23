@@ -26,7 +26,7 @@ export default new Router({
       component: Report
     },
     {
-      path: '/detail/:id',
+      path: '/detail/stuid/:stuid/tpl/:tplid',
       name: 'Detail',
       component: Detail
     },
