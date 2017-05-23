@@ -71,7 +71,7 @@
         this.loadData();
       },
       handleTableClick(row) {
-        router.push({name: 'reportlist', param: {id: row.templateId}})
+        this.$router.push({name: 'ReportList', params: {id: row.templateId}})
       }
     },
     components: {
