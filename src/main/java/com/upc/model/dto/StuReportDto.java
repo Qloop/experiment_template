@@ -11,6 +11,7 @@ public class StuReportDto {
     private String result;
     private long id;
 
+    private String title;
     private String goalRept;
     private String theoryRept;
     private String equipmentRept;
@@ -26,6 +27,14 @@ public class StuReportDto {
     private String dataRept;
     private String thinkingRept;
     private String createDate;
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 
     public void setResult(String result) {
         this.result = result;

@@ -65,6 +65,7 @@ public class TemplateService {
         StuReport report = stuReportDao.findByStuIdAndTemplateId(stuId, templateId);
         if (report != null) {
             stuReportDto.setResult(Config.SUCCESS_CODE + "");
+            stuReportDto.setTitle(templateDao.findById(templateId).getTitle());
             stuReportDto.setId(report.getId());
             stuReportDto.setDataRept(report.getDataRept());
             stuReportDto.setDemandRept(report.getDemandRept());

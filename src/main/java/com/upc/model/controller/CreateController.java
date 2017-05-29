@@ -18,11 +18,6 @@ public class CreateController {
     @Autowired
     private TemplateService templateService;
 
-    @RequestMapping(value = "/")
-    public String hello() {
-        return "Auto Template";
-    }
-
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public Map<String, Long> createTemplate(@RequestBody String templateJsonContent) {
         return templateService.createTemplate(templateJsonContent);
