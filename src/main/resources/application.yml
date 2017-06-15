@@ -5,9 +5,9 @@ spring:
     chain:
       enabled: true
   datasource:
-    url: jdbc:mysql://118.89.112.50:3306/db_exp_model
+    url: jdbc:mysql://****
     username: root
-    password: qloop
+    password: 
     test-while-idle: true
     validation-query: SELECT 1
   jpa:
